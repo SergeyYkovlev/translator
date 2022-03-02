@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		0C9FAF7F27CF51CB00FA60C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAF7E27CF51CB00FA60C3 /* AppDelegate.swift */; };
 		0C9FAF8127CF51CB00FA60C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAF8027CF51CB00FA60C3 /* SceneDelegate.swift */; };
-		0C9FAF8327CF51CB00FA60C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAF8227CF51CB00FA60C3 /* ViewController.swift */; };
+		0C9FAF8327CF51CB00FA60C3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAF8227CF51CB00FA60C3 /* SearchViewController.swift */; };
 		0C9FAF8827CF51CD00FA60C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C9FAF8727CF51CD00FA60C3 /* Assets.xcassets */; };
 		0C9FAF8B27CF51CD00FA60C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9FAF8927CF51CD00FA60C3 /* LaunchScreen.storyboard */; };
 		0C9FAF9327CF523A00FA60C3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAF9227CF523A00FA60C3 /* Coordinator.swift */; };
 		0C9FAF9527CF524300FA60C3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAF9427CF524300FA60C3 /* MainCoordinator.swift */; };
+		0C9FAFA627CF757400FA60C3 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAFA527CF757400FA60C3 /* SearchPresenter.swift */; };
+		0C9FAFAC27CF766C00FA60C3 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAFAB27CF766C00FA60C3 /* SearchState.swift */; };
+		0C9FAFAE27CF769500FA60C3 /* SearchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAFAD27CF769500FA60C3 /* SearchModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C9FAF7B27CF51CB00FA60C3 /* translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = translator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9FAF7E27CF51CB00FA60C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9FAF8027CF51CB00FA60C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0C9FAF8227CF51CB00FA60C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0C9FAF8227CF51CB00FA60C3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0C9FAF8727CF51CD00FA60C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C9FAF8A27CF51CD00FA60C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C9FAF8C27CF51CD00FA60C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C9FAF9227CF523A00FA60C3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0C9FAF9427CF524300FA60C3 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		0C9FAFA527CF757400FA60C3 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		0C9FAFAB27CF766C00FA60C3 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
+		0C9FAFAD27CF769500FA60C3 /* SearchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +110,10 @@
 		0C9FAF9B27CF5DEA00FA60C3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				0C9FAF8227CF51CB00FA60C3 /* ViewController.swift */,
+				0C9FAFAB27CF766C00FA60C3 /* SearchState.swift */,
+				0C9FAFAD27CF769500FA60C3 /* SearchModule.swift */,
+				0C9FAF8227CF51CB00FA60C3 /* SearchViewController.swift */,
+				0C9FAFA527CF757400FA60C3 /* SearchPresenter.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -128,6 +137,7 @@
 				0C9FAF7727CF51CB00FA60C3 /* Sources */,
 				0C9FAF7827CF51CB00FA60C3 /* Frameworks */,
 				0C9FAF7927CF51CB00FA60C3 /* Resources */,
+				0C9FAFAF27CF7EA000FA60C3 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -183,16 +193,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C9FAFAF27CF7EA000FA60C3 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0C9FAF7727CF51CB00FA60C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C9FAF8327CF51CB00FA60C3 /* ViewController.swift in Sources */,
+				0C9FAF8327CF51CB00FA60C3 /* SearchViewController.swift in Sources */,
+				0C9FAFAE27CF769500FA60C3 /* SearchModule.swift in Sources */,
 				0C9FAF7F27CF51CB00FA60C3 /* AppDelegate.swift in Sources */,
 				0C9FAF8127CF51CB00FA60C3 /* SceneDelegate.swift in Sources */,
 				0C9FAF9527CF524300FA60C3 /* MainCoordinator.swift in Sources */,
 				0C9FAF9327CF523A00FA60C3 /* Coordinator.swift in Sources */,
+				0C9FAFA627CF757400FA60C3 /* SearchPresenter.swift in Sources */,
+				0C9FAFAC27CF766C00FA60C3 /* SearchState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
