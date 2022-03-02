@@ -14,7 +14,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var coordinator: MainCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowSceen = (scene as? UIWindowScene) else { return }
+        guard let windowSceen = (scene as? UIWindowScene) else {
+            return
+        }
         let window = UIWindow(windowScene: windowSceen)
         self.window = window
         coordinator = .init(window: window)

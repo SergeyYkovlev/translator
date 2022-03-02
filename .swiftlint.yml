@@ -53,12 +53,6 @@ function_parameter_count: 4
 type_name:
   min_length: 2 # only warning
 
-file_header:
-  required_pattern: |
-                    \/\/
-                    \/\/  Copyright © \d{4}\ .*?. All rights reserved.
-                    \/\/
-
 # Custom rules
 
 custom_rules:
