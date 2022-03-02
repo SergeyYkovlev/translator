@@ -11,6 +11,7 @@ import  UIKit
 class MainCoordinator: BaseCoordinator <UINavigationController> {
   
     let window: UIWindow
+    let searchModule = SearchModule()
    
     init(window: UIWindow) {
         self.window = window
@@ -21,10 +22,9 @@ class MainCoordinator: BaseCoordinator <UINavigationController> {
     }
     
     override func start() {
-        let viewController = ViewController()
 //        viewController.delegate = self
-        rootViewController.pushViewController(viewController, animated: true)
+//        searchModule.output = self
+        rootViewController.pushViewController(searchModule.viewController, animated: true)
     }
-    
-   
 }
+
