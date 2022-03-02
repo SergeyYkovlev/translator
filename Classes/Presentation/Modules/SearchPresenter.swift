@@ -26,7 +26,8 @@ extension SearchPresenter: SearchViewOutput {
 
 extension SearchPresenter: SearchModuleInput {
     func update(force: Bool, animated: Bool) {
-
+        let viewModel = SearchViewModel(state: state)
+        view?.update(with: viewModel, force: force, animated: animated)
     }
 
 }

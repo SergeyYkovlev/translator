@@ -6,6 +6,9 @@
 //
 
 import UIKit
+protocol SearchViewInput {
+    func update(with viewModel: SearchViewModel, force: Bool, animated: Bool)
+}
 
 protocol SearchViewOutput {
 
@@ -14,8 +17,10 @@ protocol SearchViewOutput {
 class SearchViewController: UIViewController {
 
     private let output: SearchViewOutput
+    private var viewModel: SearchViewModel
 
-    init(output: SearchViewOutput) {
+    init(viewModel: SearchViewModel, output: SearchViewOutput) {
+        self.viewModel = viewModel
         self.output = output
         super.init(nibName: nil, bundle: nil)
     }
@@ -27,5 +32,10 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
+    }
+}
+
+extension SearchViewController: SearchViewInput, ViewUpdate {
+    func update(with viewModel: SearchViewModel, force: Bool, animated: Bool) {
     }
 }
