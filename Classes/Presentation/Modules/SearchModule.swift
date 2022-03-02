@@ -12,11 +12,11 @@ protocol SearchModuleInput: AnyObject {
 }
 
 protocol SearchModuleOutput: AnyObject {
-    
+
 }
 
 final class SearchModule {
-    
+
     var input: SearchModuleInput {
         return presenter
     }
@@ -39,8 +39,6 @@ final class SearchModule {
         self.viewController = viewController
         self.presenter = presenter
     }
-    
+
 }
 
-
-    

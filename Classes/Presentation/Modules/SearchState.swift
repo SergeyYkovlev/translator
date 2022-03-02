@@ -9,8 +9,5 @@ import Foundation
 import CoreLocation
 
 final class SearchState {
-  
-   
-    
-}
 
+}
