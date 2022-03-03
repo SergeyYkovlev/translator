@@ -13,7 +13,7 @@ protocol SearchViewInput {
 }
 
 protocol SearchViewOutput {
-    func textRecognition(text: String)
+    func editingText(_ text: String)
 }
 
 class SearchViewController: UIViewController {
@@ -21,9 +21,10 @@ class SearchViewController: UIViewController {
     private let output: SearchViewOutput
     private var viewModel: SearchViewModel
 
-    private(set) lazy var textFieldInput: UITextField = {
+    private lazy var searchTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = UIColor.white
+        textField.backgroundColor = .white
+        textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         return textField
     }()
 
@@ -40,20 +41,19 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 114 / 255.0, green: 144 / 255.0, blue: 185 / 255.0, alpha: 1)
-        view.addSubview(textFieldInput)
-        textFieldInput.addTarget(self, action: #selector(textInputTextField), for: .editingChanged)
+        view.addSubview(searchTextField)
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        textFieldInput.configureFrame { maker in
+        searchTextField.configureFrame { maker in
             maker.top(inset: 100).left(inset: 10).right(inset: 10).height(50)
         }
     }
 
-    @objc private func textInputTextField() {
-        output.textRecognition(text: textFieldInput.text!)
+    @objc private func textFieldEditingChanged() {
+        output.editingText(searchTextField.text!)
     }
 }
 
@@ -61,13 +61,8 @@ extension SearchViewController: SearchViewInput, ViewUpdate {
     func update(with viewModel: SearchViewModel, force: Bool, animated: Bool) {
         let oldViewModel = self.viewModel
         self.viewModel = viewModel
-
         func updateViewModel<Value: Equatable>(_ keyPath: KeyPath<SearchViewModel, Value>, configurationBlock: (Value) -> Void) {
             update(new: viewModel, old: oldViewModel, keyPath: keyPath, force: force, configurationBlock: configurationBlock)
-        }
-
-        updateViewModel(\.isBackgroundGreen) { isBackgroundGreen in
-            view.backgroundColor = isBackgroundGreen ? .green : .blue
         }
     }
 }

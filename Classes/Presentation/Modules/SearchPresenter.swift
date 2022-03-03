@@ -21,7 +21,7 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchViewOutput {
-    func textRecognition(text: String) {
+    func editingText(_ text: String) {
         state.enteredText = text
         print(state.enteredText)
     }

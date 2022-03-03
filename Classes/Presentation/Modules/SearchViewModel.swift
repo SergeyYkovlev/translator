@@ -8,9 +8,8 @@
 import Foundation
 
 class SearchViewModel {
-    let isBackgroundGreen: Bool
 
     init(state: SearchState) {
-        isBackgroundGreen = state.isBackgroundGreen
+
     }
 }
