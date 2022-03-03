@@ -9,5 +9,6 @@ import Foundation
 import CoreLocation
 
 final class SearchState {
+    var enteredText = ""
     var isBackgroundGreen: Bool = true
 }

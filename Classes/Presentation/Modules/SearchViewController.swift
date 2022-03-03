@@ -14,7 +14,7 @@ protocol SearchViewInput {
 
 protocol SearchViewOutput {
     func backgroundChange()
-    func textRecognition()
+    func textRecognition(text: String)
 }
 
 class SearchViewController: UIViewController {
@@ -28,8 +28,8 @@ class SearchViewController: UIViewController {
         button.setTitle("Background", for: .normal)
         return button
     }()
-    
-    private lazy var textField: UITextField = {
+
+    private(set) lazy var textFieldInput: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = UIColor.white
         return textField
@@ -48,9 +48,9 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 114 / 255.0, green: 144 / 255.0, blue: 185 / 255.0, alpha: 1)
-        view.addSubview(button)
-        view.addSubview(textField)
-        textField.addTarget(self, action: #selector(textInputTextField), for: .editingChanged)
+//        view.addSubview(button)
+        view.addSubview(textFieldInput)
+        textFieldInput.addTarget(self, action: #selector(textInputTextField), for: .editingChanged)
     }
 
     override func viewDidLayoutSubviews() {
@@ -58,9 +58,9 @@ class SearchViewController: UIViewController {
         button.configureFrame { maker in
             maker.top(inset: 100).left(inset: 30).width(100).height(50)
         }
-        
-        textField.configureFrame { maker in
-            maker.top(inset: 50).left(inset: 10).right(inset: 10).height(250)
+
+        textFieldInput.configureFrame { maker in
+            maker.top(inset: 100).left(inset: 10).right(inset: 10).height(50)
         }
     }
 
@@ -68,7 +68,7 @@ class SearchViewController: UIViewController {
         output.backgroundChange()
     }
     @objc private func textInputTextField() {
-        output.textRecognition()
+        output.textRecognition(text: textFieldInput.text!)
     }
 }
 
@@ -80,7 +80,7 @@ extension SearchViewController: SearchViewInput, ViewUpdate {
         func updateViewModel<Value: Equatable>(_ keyPath: KeyPath<SearchViewModel, Value>, configurationBlock: (Value) -> Void) {
             update(new: viewModel, old: oldViewModel, keyPath: keyPath, force: force, configurationBlock: configurationBlock)
         }
-        
+
         updateViewModel(\.isBackgroundGreen) { isBackgroundGreen in
             view.backgroundColor = isBackgroundGreen ? .green : .blue
         }

@@ -21,10 +21,11 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchViewOutput {
-    func textRecognition() {
-        print("Там есть текст!")
+    func textRecognition(text: String) {
+        state.enteredText = text
+        print(state.enteredText)
     }
-    
+
     func backgroundChange() {
         state.isBackgroundGreen.toggle()
         update(force: false, animated: true)
