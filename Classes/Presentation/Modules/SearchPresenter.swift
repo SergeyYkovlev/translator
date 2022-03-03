@@ -21,12 +21,16 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchViewOutput {
-
+    func editingText(_ text: String) {
+        state.enteredText = text
+        print(state.enteredText)
+    }
 }
 
 extension SearchPresenter: SearchModuleInput {
     func update(force: Bool, animated: Bool) {
-
+        let viewModel = SearchViewModel(state: state)
+        view?.update(with: viewModel, force: force, animated: animated)
     }
 
 }

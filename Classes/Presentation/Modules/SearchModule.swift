@@ -5,6 +5,7 @@
 //  Created by Сергей Яковлев on 02.03.2022.
 //
 import Foundation
+import UIKit
 
 protocol SearchModuleInput: AnyObject {
     var state: SearchState { get }
@@ -34,7 +35,8 @@ final class SearchModule {
 
     init(state: SearchState = .init()) {
         let presenter = SearchPresenter(state: state)
-        let viewController = SearchViewController(output: presenter)
+        let viewModel = SearchViewModel(state: state)
+        let viewController = SearchViewController(viewModel: viewModel, output: presenter)
         presenter.view = viewController
         self.viewController = viewController
         self.presenter = presenter
