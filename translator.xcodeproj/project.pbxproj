@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0C4F9BF427CF87FB0087871E /* ViewUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F9BF327CF87FB0087871E /* ViewUpdatable.swift */; };
 		0C4F9BF727CF88E30087871E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F9BF627CF88E30087871E /* SearchViewModel.swift */; };
+		0C4F9BFA27CF8E380087871E /* Framezilla.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C4F9BF927CF8E380087871E /* Framezilla.xcframework */; };
+		0C4F9BFB27CF8E380087871E /* Framezilla.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C4F9BF927CF8E380087871E /* Framezilla.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0C9FAF7F27CF51CB00FA60C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAF7E27CF51CB00FA60C3 /* AppDelegate.swift */; };
 		0C9FAF8127CF51CB00FA60C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAF8027CF51CB00FA60C3 /* SceneDelegate.swift */; };
 		0C9FAF8327CF51CB00FA60C3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAF8227CF51CB00FA60C3 /* SearchViewController.swift */; };
@@ -21,9 +23,24 @@
 		0C9FAFAE27CF769500FA60C3 /* SearchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FAFAD27CF769500FA60C3 /* SearchModule.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0C4F9BFC27CF8E380087871E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0C4F9BFB27CF8E380087871E /* Framezilla.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0C4F9BF327CF87FB0087871E /* ViewUpdatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewUpdatable.swift; path = Classes/Core/ViewUpdatable/ViewUpdatable.swift; sourceTree = SOURCE_ROOT; };
 		0C4F9BF627CF88E30087871E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		0C4F9BF927CF8E380087871E /* Framezilla.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Framezilla.xcframework; path = Carthage/Build/Framezilla.xcframework; sourceTree = "<group>"; };
 		0C9FAF7B27CF51CB00FA60C3 /* translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = translator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9FAF7E27CF51CB00FA60C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9FAF8027CF51CB00FA60C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C4F9BFA27CF8E380087871E /* Framezilla.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +83,14 @@
 			path = ViewUpdatable;
 			sourceTree = "<group>";
 		};
+		0C4F9BF827CF8E370087871E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C4F9BF927CF8E380087871E /* Framezilla.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0C9FAF7227CF51CB00FA60C3 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +98,7 @@
 				0C9FAF9727CF5CC000FA60C3 /* Classes */,
 				0C9FAF7D27CF51CB00FA60C3 /* translator */,
 				0C9FAF7C27CF51CB00FA60C3 /* Products */,
+				0C4F9BF827CF8E370087871E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,11 +158,11 @@
 		0C9FAF9B27CF5DEA00FA60C3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				0C9FAFAB27CF766C00FA60C3 /* SearchState.swift */,
 				0C9FAFAD27CF769500FA60C3 /* SearchModule.swift */,
 				0C9FAF8227CF51CB00FA60C3 /* SearchViewController.swift */,
 				0C4F9BF627CF88E30087871E /* SearchViewModel.swift */,
 				0C9FAFA527CF757400FA60C3 /* SearchPresenter.swift */,
+				0C9FAFAB27CF766C00FA60C3 /* SearchState.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -160,6 +187,7 @@
 				0C9FAF7827CF51CB00FA60C3 /* Frameworks */,
 				0C9FAF7927CF51CB00FA60C3 /* Resources */,
 				0C9FAFAF27CF7EA000FA60C3 /* SwiftLint */,
+				0C4F9BFC27CF8E380087871E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -9,5 +9,5 @@ import Foundation
 import CoreLocation
 
 final class SearchState {
-
+    var isBackgroundGreen: Bool = true
 }
