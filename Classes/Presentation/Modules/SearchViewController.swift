@@ -18,12 +18,18 @@ protocol SearchViewOutput {
 
 class SearchViewController: UIViewController {
 
+    private struct Constants {
+        static let searchTextFieldSideInset: CGFloat = 10
+        static let searchTextFieldTopInset: CGFloat = 100
+        static let searchTextFieldHeight: CGFloat = 50
+    }
+
     private let output: SearchViewOutput
     private var viewModel: SearchViewModel
 
     private lazy var searchTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = .white
+        textField.backgroundColor = .main1
         textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         return textField
     }()
@@ -40,7 +46,7 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 114 / 255.0, green: 144 / 255.0, blue: 185 / 255.0, alpha: 1)
+        view.backgroundColor = .main3
         view.addSubview(searchTextField)
     }
 
@@ -48,12 +54,18 @@ class SearchViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         searchTextField.configureFrame { maker in
-            maker.top(inset: 100).left(inset: 10).right(inset: 10).height(50)
+            maker.top(inset: Constants.searchTextFieldTopInset)
+                .left(inset: Constants.searchTextFieldSideInset)
+                .right(inset: Constants.searchTextFieldSideInset)
+                .height(Constants.searchTextFieldHeight)
         }
     }
 
     @objc private func textFieldEditingChanged() {
-        output.editingText(searchTextField.text!)
+        guard let text = searchTextField.text else {
+            return
+        }
+        output.editingText(text)
     }
 }
 

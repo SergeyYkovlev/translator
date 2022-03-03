@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C42B26127D0AD9700DFDE71 /* UIColor+Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B26027D0AD9700DFDE71 /* UIColor+Application.swift */; };
+		0C42B26427D0AE0400DFDE71 /* UIColor+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B26327D0AE0400DFDE71 /* UIColor+Sugar.swift */; };
 		0C4F9BF427CF87FB0087871E /* ViewUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F9BF327CF87FB0087871E /* ViewUpdatable.swift */; };
 		0C4F9BF727CF88E30087871E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F9BF627CF88E30087871E /* SearchViewModel.swift */; };
 		0C4F9BFA27CF8E380087871E /* Framezilla.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C4F9BF927CF8E380087871E /* Framezilla.xcframework */; };
@@ -38,6 +40,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C42B26027D0AD9700DFDE71 /* UIColor+Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Application.swift"; sourceTree = "<group>"; };
+		0C42B26327D0AE0400DFDE71 /* UIColor+Sugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Sugar.swift"; sourceTree = "<group>"; };
 		0C4F9BF327CF87FB0087871E /* ViewUpdatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewUpdatable.swift; path = Classes/Core/ViewUpdatable/ViewUpdatable.swift; sourceTree = SOURCE_ROOT; };
 		0C4F9BF627CF88E30087871E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		0C4F9BF927CF8E380087871E /* Framezilla.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Framezilla.xcframework; path = Carthage/Build/Framezilla.xcframework; sourceTree = "<group>"; };
@@ -67,6 +71,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C42B25F27D0AD8400DFDE71 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0C42B26027D0AD9700DFDE71 /* UIColor+Application.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0C42B26227D0ADEC00DFDE71 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0C42B26327D0AE0400DFDE71 /* UIColor+Sugar.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		0C4F9BF227CF87B70087871E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +152,7 @@
 		0C9FAF9827CF5D6400FA60C3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				0C42B25F27D0AD8400DFDE71 /* Extensions */,
 				0C9FAF9B27CF5DEA00FA60C3 /* Modules */,
 				0C9FAF9A27CF5DD900FA60C3 /* Coordinators */,
 			);
@@ -141,6 +162,7 @@
 		0C9FAF9927CF5D6A00FA60C3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0C42B26227D0ADEC00DFDE71 /* Extensions */,
 				0C4F9BF527CF88000087871E /* ViewUpdatable */,
 				0C4F9BF227CF87B70087871E /* Coordinator */,
 			);
@@ -278,7 +300,9 @@
 				0C9FAF9527CF524300FA60C3 /* MainCoordinator.swift in Sources */,
 				0C4F9BF727CF88E30087871E /* SearchViewModel.swift in Sources */,
 				0C9FAF9327CF523A00FA60C3 /* Coordinator.swift in Sources */,
+				0C42B26427D0AE0400DFDE71 /* UIColor+Sugar.swift in Sources */,
 				0C9FAFA627CF757400FA60C3 /* SearchPresenter.swift in Sources */,
+				0C42B26127D0AD9700DFDE71 /* UIColor+Application.swift in Sources */,
 				0C9FAFAC27CF766C00FA60C3 /* SearchState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
