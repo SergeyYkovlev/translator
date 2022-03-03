@@ -25,11 +25,6 @@ extension SearchPresenter: SearchViewOutput {
         state.enteredText = text
         print(state.enteredText)
     }
-
-    func backgroundChange() {
-        state.isBackgroundGreen.toggle()
-        update(force: false, animated: true)
-    }
 }
 
 extension SearchPresenter: SearchModuleInput {
