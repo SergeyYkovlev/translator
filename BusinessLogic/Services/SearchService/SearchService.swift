@@ -13,5 +13,5 @@ protocol HasSearchService {
 }
 
 protocol SearchService: AnyObject {
-//    func filesUrl(for scope: String) -> URL
+    func fetchWords(query: String, success: (([Word]) -> Void)?, failure: (() -> Void)?)
 }

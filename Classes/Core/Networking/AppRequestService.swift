@@ -1,5 +1,8 @@
 //
-//  Copyright © 2020 BitCom Solution. All rights reserved.
+//  ViewController.swift
+//  translator
+//
+//  Created by Сергей Яковлев on 02.03.2022.
 //
 
 import Foundation

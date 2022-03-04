@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+final class SearchServiceImpl: AppRequestService, SearchService {
+    func fetchWords(query: String, success: (([Word]) -> Void)?, failure: (() -> Void)?) {
+        request(SerachEndpoint.searchWord(query), success: { (words: [Word]) in
+            DispatchQueue.main.async {
+                success?(words)
+            }
+        }, failure: nil)
+    }
+}

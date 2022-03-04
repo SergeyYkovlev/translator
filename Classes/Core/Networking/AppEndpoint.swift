@@ -1,5 +1,8 @@
 //
-//  Copyright © 2020 BitCom Solution. All rights reserved.
+//  ViewController.swift
+//  translator
+//
+//  Created by Сергей Яковлев on 02.03.2022.
 //
 
 import Foundation
@@ -12,9 +15,6 @@ protocol AppEndpoint: Endpoint {
 extension Endpoint {
 
     var baseURL: URL {
-        if !AppConfiguration.isRelease.value {
-            return AppConfiguration.serverURL.value.appendingPathComponent("random_value")
-        }
-        return AppConfiguration.serverURL.value
+        return URL(string: "https://dictionary.skyeng.ru/api/public/v1")!
     }
 }
