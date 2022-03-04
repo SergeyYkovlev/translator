@@ -10,4 +10,6 @@ import CoreLocation
 
 final class SearchState {
     var enteredText = ""
+    var text: String = ""
+    var word: [Word]?
 }

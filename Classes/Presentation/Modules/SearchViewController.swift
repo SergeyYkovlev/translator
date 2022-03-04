@@ -14,6 +14,7 @@ protocol SearchViewInput {
 
 protocol SearchViewOutput {
     func editingText(_ text: String)
+    func translation()
 }
 
 class SearchViewController: UIViewController {
@@ -66,6 +67,7 @@ class SearchViewController: UIViewController {
             return
         }
         output.editingText(text)
+        output.translation()
     }
 }
 
