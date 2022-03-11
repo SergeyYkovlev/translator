@@ -7,6 +7,7 @@
 
 import UIKit
 import Framezilla
+import CollectionViewTools
 
 protocol SearchViewInput {
     func update(with viewModel: SearchViewModel, force: Bool, animated: Bool)
@@ -15,6 +16,7 @@ protocol SearchViewInput {
 protocol SearchViewOutput {
     func editingText(_ text: String)
     func translation()
+    func update()
 }
 
 class SearchViewController: UIViewController {
@@ -23,8 +25,14 @@ class SearchViewController: UIViewController {
         static let searchTextFieldSideInset: CGFloat = 10
         static let searchTextFieldTopInset: CGFloat = 100
         static let searchTextFieldHeight: CGFloat = 50
+        static let collectionViewSideInset: CGFloat = 10
+        static let collectionViewTopInset: CGFloat = 20
+        static let collectionViewHeight: CGFloat = 500
     }
 
+    private lazy var collectionViewManager: CollectionViewManager = .init(collectionView: collectionView)
+
+    let searchService: SearchServiceImpl = .init()
     private let output: SearchViewOutput
     private var viewModel: SearchViewModel
 
@@ -33,6 +41,17 @@ class SearchViewController: UIViewController {
         textField.backgroundColor = .main1
         textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         return textField
+    }()
+
+    private(set) lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.backgroundColor = .white
+        view.alwaysBounceVertical = true
+        view.contentInsetAdjustmentBehavior = .never
+        view.isPrefetchingEnabled = false
+        return view
     }()
 
     init(viewModel: SearchViewModel, output: SearchViewOutput) {
@@ -49,6 +68,9 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .main3
         view.addSubview(searchTextField)
+        view.addSubview(collectionView)
+
+//        self.translationTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
     }
 
     override func viewDidLayoutSubviews() {
@@ -60,6 +82,14 @@ class SearchViewController: UIViewController {
                 .right(inset: Constants.searchTextFieldSideInset)
                 .height(Constants.searchTextFieldHeight)
         }
+
+        collectionView.configureFrame { maker in
+            maker.top(to: self.searchTextField.nui_bottom, inset: Constants.collectionViewTopInset)
+                .left(inset: Constants.collectionViewSideInset)
+                .right(inset: Constants.collectionViewSideInset)
+                .height(Constants.collectionViewHeight)
+        }
+        collectionView.scrollIndicatorInsets = collectionView.contentInset
     }
 
     @objc private func textFieldEditingChanged() {
@@ -68,6 +98,7 @@ class SearchViewController: UIViewController {
         }
         output.editingText(text)
         output.translation()
+        output.update()
     }
 }
 
@@ -75,6 +106,10 @@ extension SearchViewController: SearchViewInput, ViewUpdate {
     func update(with viewModel: SearchViewModel, force: Bool, animated: Bool) {
         let oldViewModel = self.viewModel
         self.viewModel = viewModel
+        collectionViewManager.update(with: viewModel.listSectionItems, animated: animated)
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+
         func updateViewModel<Value: Equatable>(_ keyPath: KeyPath<SearchViewModel, Value>, configurationBlock: (Value) -> Void) {
             update(new: viewModel, old: oldViewModel, keyPath: keyPath, force: force, configurationBlock: configurationBlock)
         }

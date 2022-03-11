@@ -37,12 +37,4 @@ extension SerachEndpoint: AppEndpoint {
             return ["search": word]
         }
     }
-
-    var parametersData: Data? {
-        return nil
-    }
-
-    var parameterEncoding: ParameterEncoding {
-        return .data
-    }
 }

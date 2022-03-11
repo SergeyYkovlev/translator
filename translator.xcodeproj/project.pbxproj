@@ -26,6 +26,11 @@
 		0C42B28727D2231300DFDE71 /* AppRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B28627D2231300DFDE71 /* AppRequestService.swift */; };
 		0C42B28927D2231C00DFDE71 /* AppEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B28827D2231C00DFDE71 /* AppEndpoint.swift */; };
 		0C42B28B27D224AF00DFDE71 /* SearchServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B28A27D224AF00DFDE71 /* SearchServiceImpl.swift */; };
+		0C42B28D27D358EB00DFDE71 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B28C27D358EB00DFDE71 /* SearchCollectionViewCell.swift */; };
+		0C42B28F27DA04D100DFDE71 /* CollectionViewTools.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C42B28E27DA04D100DFDE71 /* CollectionViewTools.xcframework */; };
+		0C42B29027DA04D100DFDE71 /* CollectionViewTools.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C42B28E27DA04D100DFDE71 /* CollectionViewTools.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C42B29227DB258F00DFDE71 /* SearchCollectionViewCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B29127DB258F00DFDE71 /* SearchCollectionViewCellItem.swift */; };
+		0C42B29427DB2B0400DFDE71 /* SearchListItemsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B29327DB2B0400DFDE71 /* SearchListItemsFactory.swift */; };
 		0C4F9BF427CF87FB0087871E /* ViewUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F9BF327CF87FB0087871E /* ViewUpdatable.swift */; };
 		0C4F9BF727CF88E30087871E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F9BF627CF88E30087871E /* SearchViewModel.swift */; };
 		0C4F9BFA27CF8E380087871E /* Framezilla.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C4F9BF927CF8E380087871E /* Framezilla.xcframework */; };
@@ -49,6 +54,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0C42B29027DA04D100DFDE71 /* CollectionViewTools.xcframework in Embed Frameworks */,
 				0C4F9BFB27CF8E380087871E /* Framezilla.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -57,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C21A3EC27DB564900A75723 /* DeepDiff.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DeepDiff.xcframework; path = Carthage/Build/DeepDiff.xcframework; sourceTree = "<group>"; };
 		0C42B26027D0AD9700DFDE71 /* UIColor+Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Application.swift"; sourceTree = "<group>"; };
 		0C42B26327D0AE0400DFDE71 /* UIColor+Sugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Sugar.swift"; sourceTree = "<group>"; };
 		0C42B26627D0B0FB00DFDE71 /* Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
@@ -76,6 +83,10 @@
 		0C42B28627D2231300DFDE71 /* AppRequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRequestService.swift; sourceTree = "<group>"; };
 		0C42B28827D2231C00DFDE71 /* AppEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEndpoint.swift; sourceTree = "<group>"; };
 		0C42B28A27D224AF00DFDE71 /* SearchServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceImpl.swift; sourceTree = "<group>"; };
+		0C42B28C27D358EB00DFDE71 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C42B28E27DA04D100DFDE71 /* CollectionViewTools.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CollectionViewTools.xcframework; path = Carthage/Build/CollectionViewTools.xcframework; sourceTree = "<group>"; };
+		0C42B29127DB258F00DFDE71 /* SearchCollectionViewCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCellItem.swift; sourceTree = "<group>"; };
+		0C42B29327DB2B0400DFDE71 /* SearchListItemsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListItemsFactory.swift; sourceTree = "<group>"; };
 		0C4F9BF327CF87FB0087871E /* ViewUpdatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewUpdatable.swift; path = Classes/Core/ViewUpdatable/ViewUpdatable.swift; sourceTree = SOURCE_ROOT; };
 		0C4F9BF627CF88E30087871E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		0C4F9BF927CF8E380087871E /* Framezilla.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Framezilla.xcframework; path = Carthage/Build/Framezilla.xcframework; sourceTree = "<group>"; };
@@ -98,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C42B28F27DA04D100DFDE71 /* CollectionViewTools.xcframework in Frameworks */,
 				0C4F9BFA27CF8E380087871E /* Framezilla.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +207,8 @@
 		0C4F9BF827CF8E370087871E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0C21A3EC27DB564900A75723 /* DeepDiff.xcframework */,
+				0C42B28E27DA04D100DFDE71 /* CollectionViewTools.xcframework */,
 				0C4F9BF927CF8E380087871E /* Framezilla.xcframework */,
 			);
 			name = Frameworks;
@@ -273,6 +287,9 @@
 			children = (
 				0C9FAFAD27CF769500FA60C3 /* SearchModule.swift */,
 				0C9FAF8227CF51CB00FA60C3 /* SearchViewController.swift */,
+				0C42B28C27D358EB00DFDE71 /* SearchCollectionViewCell.swift */,
+				0C42B29127DB258F00DFDE71 /* SearchCollectionViewCellItem.swift */,
+				0C42B29327DB2B0400DFDE71 /* SearchListItemsFactory.swift */,
 				0C4F9BF627CF88E30087871E /* SearchViewModel.swift */,
 				0C9FAFA527CF757400FA60C3 /* SearchPresenter.swift */,
 				0C9FAFAB27CF766C00FA60C3 /* SearchState.swift */,
@@ -392,12 +409,14 @@
 				0C42B27327D0B18200DFDE71 /* RequestService.swift in Sources */,
 				0C42B26927D0B12F00DFDE71 /* Endpoint.swift in Sources */,
 				0C9FAF8327CF51CB00FA60C3 /* SearchViewController.swift in Sources */,
+				0C42B28D27D358EB00DFDE71 /* SearchCollectionViewCell.swift in Sources */,
 				0C42B26B27D0B14700DFDE71 /* GeneralRequestError.swift in Sources */,
 				0C42B26727D0B0FB00DFDE71 /* Method.swift in Sources */,
 				0C42B28327D20E2700DFDE71 /* Translation.swift in Sources */,
 				0C9FAFAE27CF769500FA60C3 /* SearchModule.swift in Sources */,
 				0C9FAF7F27CF51CB00FA60C3 /* AppDelegate.swift in Sources */,
 				0C9FAF8127CF51CB00FA60C3 /* SceneDelegate.swift in Sources */,
+				0C42B29427DB2B0400DFDE71 /* SearchListItemsFactory.swift in Sources */,
 				0C42B26F27D0B16600DFDE71 /* JSONDecoder+Result.swift in Sources */,
 				0C4F9BF427CF87FB0087871E /* ViewUpdatable.swift in Sources */,
 				0C9FAF9527CF524300FA60C3 /* MainCoordinator.swift in Sources */,
@@ -410,6 +429,7 @@
 				0C42B27D27D1FB0E00DFDE71 /* Word.swift in Sources */,
 				0C42B26127D0AD9700DFDE71 /* UIColor+Application.swift in Sources */,
 				0C42B27A27D0B29E00DFDE71 /* SearchService.swift in Sources */,
+				0C42B29227DB258F00DFDE71 /* SearchCollectionViewCellItem.swift in Sources */,
 				0C9FAFAC27CF766C00FA60C3 /* SearchState.swift in Sources */,
 				0C42B27527D0B19000DFDE71 /* SessionTaskService.swift in Sources */,
 			);
