@@ -35,14 +35,13 @@ extension SearchPresenter: SearchViewOutput {
     }
 
     func editingText(_ text: String) {
-        state.enteredText = text
-        print(state.enteredText)
-        translation()
         if text.isEmpty {
-            searchService.fetchWords(query: state.enteredText, success: { [weak self] words in
-                self?.state.words = []
-                self?.update(force: false, animated: true)
-            }, failure: nil)
+            self.state.words = []
+            self.update(force: false, animated: true)
+        }else{
+            state.enteredText = text
+            print(state.enteredText)
+            translation()
         }
     }
 }
