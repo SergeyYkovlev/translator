@@ -27,7 +27,7 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchViewOutput {
-    func translation() {
+    private func translation() {
         searchService.fetchWords(query: state.enteredText, success: { [weak self] words in
             self?.state.words = words
             self?.update(force: false, animated: true)
@@ -38,9 +38,9 @@ extension SearchPresenter: SearchViewOutput {
         if text.isEmpty {
             self.state.words = []
             self.update(force: false, animated: true)
-        }else{
+        }
+        else {
             state.enteredText = text
-            print(state.enteredText)
             translation()
         }
     }
