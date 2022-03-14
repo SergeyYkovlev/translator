@@ -27,12 +27,6 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchViewOutput {
-    func updateNew() {
-        searchService.fetchWords(query: state.enteredText, success: { [weak self] words in
-            self?.state.words = []
-            self?.update(force: false, animated: true)
-        }, failure: nil)
-    }
     func translation() {
         searchService.fetchWords(query: state.enteredText, success: { [weak self] words in
             self?.state.words = words
@@ -41,9 +35,14 @@ extension SearchPresenter: SearchViewOutput {
     }
 
     func editingText(_ text: String) {
-        state.enteredText = text
-        print(state.enteredText)
-        translation()
+        if text.isEmpty {
+            self.state.words = []
+            self.update(force: false, animated: true)
+        }else{
+            state.enteredText = text
+            print(state.enteredText)
+            translation()
+        }
     }
 }
 
