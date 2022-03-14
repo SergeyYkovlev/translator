@@ -10,6 +10,13 @@ import UIKit
 
 class SearchCollectionViewCell: UICollectionViewCell {
 
+    private struct Constants {
+        static let translationLabelLeftInset: CGFloat = 5
+        static let translationLabelRightInset: CGFloat = 40
+        static let translationLabelTopInset: CGFloat = 10
+        static let translationLabelHeight: CGFloat = 30
+    }
+
     private(set) lazy var translationLabel: UILabel = {
        let label = UILabel()
         return label
@@ -28,7 +35,10 @@ class SearchCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         translationLabel.configureFrame { maker in
-            maker.top(inset: 10).left(inset: 5).right(inset: 40).height(30)
+            maker.top(inset: Constants.translationLabelTopInset)
+                .left(inset: Constants.translationLabelLeftInset)
+                .right(inset: Constants.translationLabelRightInset)
+                .height(Constants.translationLabelHeight)
         }
     }
 }

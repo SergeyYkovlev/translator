@@ -16,7 +16,7 @@ protocol SearchViewInput {
 protocol SearchViewOutput {
     func editingText(_ text: String)
     func translation()
-    func update()
+    func updateNew()
 }
 
 class SearchViewController: UIViewController {
@@ -27,7 +27,7 @@ class SearchViewController: UIViewController {
         static let searchTextFieldHeight: CGFloat = 50
         static let collectionViewSideInset: CGFloat = 10
         static let collectionViewTopInset: CGFloat = 20
-        static let collectionViewHeight: CGFloat = 500
+        static let collectionViewBottomInset: CGFloat = 10
     }
 
     private lazy var collectionViewManager: CollectionViewManager = .init(collectionView: collectionView)
@@ -69,8 +69,6 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .main3
         view.addSubview(searchTextField)
         view.addSubview(collectionView)
-
-//        self.translationTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
     }
 
     override func viewDidLayoutSubviews() {
@@ -87,7 +85,7 @@ class SearchViewController: UIViewController {
             maker.top(to: self.searchTextField.nui_bottom, inset: Constants.collectionViewTopInset)
                 .left(inset: Constants.collectionViewSideInset)
                 .right(inset: Constants.collectionViewSideInset)
-                .height(Constants.collectionViewHeight)
+                .bottom(to: view.nui_safeArea.bottom, inset: Constants.collectionViewBottomInset)
         }
         collectionView.scrollIndicatorInsets = collectionView.contentInset
     }
@@ -96,9 +94,11 @@ class SearchViewController: UIViewController {
         guard let text = searchTextField.text else {
             return
         }
-        output.editingText(text)
-        output.translation()
-        output.update()
+        if text.isEmpty {
+            output.updateNew()
+        } else {
+            output.editingText(text)
+        }
     }
 }
 

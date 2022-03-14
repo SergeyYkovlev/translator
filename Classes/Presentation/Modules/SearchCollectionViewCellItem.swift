@@ -44,7 +44,6 @@ class SearchCollectionViewCellItem: CollectionViewDiffCellItem {
         let lhs = self
         return lhs.diffIdentifier == rhs.diffIdentifier &&
             lhs.translation == rhs.translation
-
     }
 
 }

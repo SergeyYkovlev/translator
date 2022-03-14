@@ -11,7 +11,6 @@ import CoreLocation
 final class SearchPresenter {
 
     let searchService: SearchServiceImpl = .init()
-//    var translationModel: Translation = .init(from: <#Decoder#>)
 
      var view: SearchViewInput?
     weak var output: SearchModuleOutput?
@@ -28,9 +27,12 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchViewOutput {
-    func update() {
+    func updateNew() {
+        searchService.fetchWords(query: state.enteredText, success: { [weak self] words in
+            self?.state.words = []
+            self?.update(force: false, animated: true)
+        }, failure: nil)
     }
-
     func translation() {
         searchService.fetchWords(query: state.enteredText, success: { [weak self] words in
             self?.state.words = words
@@ -41,7 +43,7 @@ extension SearchPresenter: SearchViewOutput {
     func editingText(_ text: String) {
         state.enteredText = text
         print(state.enteredText)
-        update()
+        translation()
     }
 }
 
@@ -50,5 +52,4 @@ extension SearchPresenter: SearchModuleInput {
         let viewModel = SearchViewModel(state: state, listItemsFactory: listItemsFactory, output: self)
         view?.update(with: viewModel, force: force, animated: animated)
     }
-
 }
