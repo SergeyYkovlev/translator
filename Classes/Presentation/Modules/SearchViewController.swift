@@ -16,7 +16,6 @@ protocol SearchViewInput {
 protocol SearchViewOutput {
     func editingText(_ text: String)
     func translation()
-    func updateNew()
 }
 
 class SearchViewController: UIViewController {
@@ -89,16 +88,12 @@ class SearchViewController: UIViewController {
         }
         collectionView.scrollIndicatorInsets = collectionView.contentInset
     }
-
+    
     @objc private func textFieldEditingChanged() {
         guard let text = searchTextField.text else {
             return
         }
-        if text.isEmpty {
-            output.updateNew()
-        } else {
-            output.editingText(text)
-        }
+        output.editingText(text)
     }
 }
 
