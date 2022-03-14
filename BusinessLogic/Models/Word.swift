@@ -24,3 +24,11 @@ final class Word: Decodable {
         meanings = try container.decode([Meaning].self, forKey: .meanings)
     }
 }
+
+extension Word: Equatable {
+    static func == (lhs: Word, rhs: Word) -> Bool {
+        return lhs.identifier == rhs.identifier &&
+            lhs.text == rhs.text &&
+            lhs.meanings == rhs.meanings
+    }
+}

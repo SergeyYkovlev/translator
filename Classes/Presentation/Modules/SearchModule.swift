@@ -6,6 +6,7 @@
 //
 import Foundation
 import UIKit
+import CollectionViewTools
 
 protocol SearchModuleInput: AnyObject {
     var state: SearchState { get }
@@ -34,9 +35,12 @@ final class SearchModule {
     private let presenter: SearchPresenter
 
     init(state: SearchState = .init()) {
-        let presenter = SearchPresenter(state: state)
-        let viewModel = SearchViewModel(state: state)
+        let listItemsFactory = SearchListItemsFactory()
+        let presenter = SearchPresenter(state: state, listItemsFactory: listItemsFactory )
+        let viewModel = SearchViewModel(state: state, listItemsFactory: listItemsFactory, output: presenter)
         let viewController = SearchViewController(viewModel: viewModel, output: presenter)
+        listItemsFactory.output = presenter
+        listItemsFactory.viewController = viewController
         presenter.view = viewController
         self.viewController = viewController
         self.presenter = presenter
