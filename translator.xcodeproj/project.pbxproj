@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1DEA8227E04F050072A346 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1DEA8127E04F050072A346 /* TranslationViewController.swift */; };
+		0C1DEA8427E04F150072A346 /* TranslationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1DEA8327E04F150072A346 /* TranslationState.swift */; };
+		0C1DEA8627E04F1F0072A346 /* TranslationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1DEA8527E04F1F0072A346 /* TranslationPresenter.swift */; };
+		0C1DEA8827E04F2E0072A346 /* TranslationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1DEA8727E04F2E0072A346 /* TranslationModule.swift */; };
+		0C1DEA8A27E051620072A346 /* TranslationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1DEA8927E051620072A346 /* TranslationViewModel.swift */; };
 		0C42B26127D0AD9700DFDE71 /* UIColor+Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B26027D0AD9700DFDE71 /* UIColor+Application.swift */; };
 		0C42B26427D0AE0400DFDE71 /* UIColor+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B26327D0AE0400DFDE71 /* UIColor+Sugar.swift */; };
 		0C42B26727D0B0FB00DFDE71 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42B26627D0B0FB00DFDE71 /* Method.swift */; };
@@ -63,6 +68,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C1DEA8127E04F050072A346 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		0C1DEA8327E04F150072A346 /* TranslationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationState.swift; sourceTree = "<group>"; };
+		0C1DEA8527E04F1F0072A346 /* TranslationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationPresenter.swift; sourceTree = "<group>"; };
+		0C1DEA8727E04F2E0072A346 /* TranslationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModule.swift; sourceTree = "<group>"; };
+		0C1DEA8927E051620072A346 /* TranslationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewModel.swift; sourceTree = "<group>"; };
 		0C21A3EC27DB564900A75723 /* DeepDiff.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DeepDiff.xcframework; path = Carthage/Build/DeepDiff.xcframework; sourceTree = "<group>"; };
 		0C42B26027D0AD9700DFDE71 /* UIColor+Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Application.swift"; sourceTree = "<group>"; };
 		0C42B26327D0AE0400DFDE71 /* UIColor+Sugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Sugar.swift"; sourceTree = "<group>"; };
@@ -117,6 +127,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C1DEA7827DF5BAB0072A346 /* Translation */ = {
+			isa = PBXGroup;
+			children = (
+				0C1DEA8127E04F050072A346 /* TranslationViewController.swift */,
+				0C1DEA8327E04F150072A346 /* TranslationState.swift */,
+				0C1DEA8527E04F1F0072A346 /* TranslationPresenter.swift */,
+				0C1DEA8927E051620072A346 /* TranslationViewModel.swift */,
+				0C1DEA8727E04F2E0072A346 /* TranslationModule.swift */,
+			);
+			path = Translation;
+			sourceTree = "<group>";
+		};
 		0C42B25F27D0AD8400DFDE71 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +315,7 @@
 				0C4F9BF627CF88E30087871E /* SearchViewModel.swift */,
 				0C9FAFA527CF757400FA60C3 /* SearchPresenter.swift */,
 				0C9FAFAB27CF766C00FA60C3 /* SearchState.swift */,
+				0C1DEA7827DF5BAB0072A346 /* Translation */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -405,10 +428,12 @@
 				0C42B28127D20E1300DFDE71 /* PartOfSpeech.swift in Sources */,
 				0C42B28B27D224AF00DFDE71 /* SearchServiceImpl.swift in Sources */,
 				0C42B27F27D1FB2400DFDE71 /* Meaning.swift in Sources */,
+				0C1DEA8A27E051620072A346 /* TranslationViewModel.swift in Sources */,
 				0C42B26D27D0B15A00DFDE71 /* Header.swift in Sources */,
 				0C42B27327D0B18200DFDE71 /* RequestService.swift in Sources */,
 				0C42B26927D0B12F00DFDE71 /* Endpoint.swift in Sources */,
 				0C9FAF8327CF51CB00FA60C3 /* SearchViewController.swift in Sources */,
+				0C1DEA8627E04F1F0072A346 /* TranslationPresenter.swift in Sources */,
 				0C42B28D27D358EB00DFDE71 /* SearchCollectionViewCell.swift in Sources */,
 				0C42B26B27D0B14700DFDE71 /* GeneralRequestError.swift in Sources */,
 				0C42B26727D0B0FB00DFDE71 /* Method.swift in Sources */,
@@ -423,11 +448,14 @@
 				0C4F9BF727CF88E30087871E /* SearchViewModel.swift in Sources */,
 				0C42B28927D2231C00DFDE71 /* AppEndpoint.swift in Sources */,
 				0C42B28727D2231300DFDE71 /* AppRequestService.swift in Sources */,
+				0C1DEA8427E04F150072A346 /* TranslationState.swift in Sources */,
+				0C1DEA8227E04F050072A346 /* TranslationViewController.swift in Sources */,
 				0C9FAF9327CF523A00FA60C3 /* Coordinator.swift in Sources */,
 				0C42B26427D0AE0400DFDE71 /* UIColor+Sugar.swift in Sources */,
 				0C9FAFA627CF757400FA60C3 /* SearchPresenter.swift in Sources */,
 				0C42B27D27D1FB0E00DFDE71 /* Word.swift in Sources */,
 				0C42B26127D0AD9700DFDE71 /* UIColor+Application.swift in Sources */,
+				0C1DEA8827E04F2E0072A346 /* TranslationModule.swift in Sources */,
 				0C42B27A27D0B29E00DFDE71 /* SearchService.swift in Sources */,
 				0C42B29227DB258F00DFDE71 /* SearchCollectionViewCellItem.swift in Sources */,
 				0C9FAFAC27CF766C00FA60C3 /* SearchState.swift in Sources */,

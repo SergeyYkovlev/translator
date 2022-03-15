@@ -14,7 +14,7 @@ protocol SearchModuleInput: AnyObject {
 }
 
 protocol SearchModuleOutput: AnyObject {
-
+    func searchModuleTranslationOpenViewController()
 }
 
 final class SearchModule {

@@ -12,6 +12,7 @@ class MainCoordinator: BaseCoordinator <UINavigationController> {
 
     let window: UIWindow
     let searchModule = SearchModule()
+    let translationModule = TranslationModule()
 
     init(window: UIWindow) {
         self.window = window
@@ -23,7 +24,18 @@ class MainCoordinator: BaseCoordinator <UINavigationController> {
 
     override func start() {
 //        viewController.delegate = self
-//        searchModule.output = self
+        searchModule.output = self
+        translationModule.output = self
         rootViewController.pushViewController(searchModule.viewController, animated: true)
     }
+}
+
+extension MainCoordinator: SearchModuleOutput {
+    func searchModuleTranslationOpenViewController() {
+        rootViewController.pushViewController(translationModule.viewController, animated: true)
+    }
+}
+
+extension MainCoordinator: TranslationModuleOutput {
+
 }

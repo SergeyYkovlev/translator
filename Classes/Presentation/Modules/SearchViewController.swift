@@ -9,15 +9,16 @@ import UIKit
 import Framezilla
 import CollectionViewTools
 
-protocol SearchViewInput {
+protocol SearchViewInput: AnyObject {
     func update(with viewModel: SearchViewModel, force: Bool, animated: Bool)
 }
 
-protocol SearchViewOutput {
+protocol SearchViewOutput: AnyObject {
     func editingText(_ text: String)
+    func openTranslationViewController()
 }
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
 
     private struct Constants {
         static let searchTextFieldSideInset: CGFloat = 10

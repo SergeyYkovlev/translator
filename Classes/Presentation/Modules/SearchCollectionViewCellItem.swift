@@ -14,7 +14,7 @@ class SearchCollectionViewCellItem: CollectionViewDiffCellItem {
 
     private typealias Cell = SearchCollectionViewCell
 
-    let diffIdentifier: String
+    var diffIdentifier: String
 
     let reuseType: ReuseType = .class(Cell.self)
 

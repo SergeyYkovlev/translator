@@ -7,11 +7,12 @@
 
 import Foundation
 import CollectionViewTools
+import UIKit
 
 final class SearchListItemsFactory {
 
     weak var viewController: SearchViewController?
-    var output: SearchViewOutput?
+    weak var output: SearchViewOutput?
 
     func makeSectionItems(state: SearchState, output: SearchViewOutput) -> [GeneralCollectionViewDiffSectionItem] {
         let sectionItem = GeneralCollectionViewDiffSectionItem()
@@ -24,9 +25,13 @@ final class SearchListItemsFactory {
             guard let translation = meaning.translation?.text else {
                 return nil
             }
-            return SearchCollectionViewCellItem(translation: translation)
+            let cellItem = SearchCollectionViewCellItem(translation: translation)
+            cellItem.diffIdentifier = UUID().uuidString
+            cellItem.itemDidSelectHandler = { [weak output] _ in
+                output?.openTranslationViewController()
+            }
+            return cellItem
         }
-
         sectionItem.minimumLineSpacing = 10
         return [sectionItem]
     }
