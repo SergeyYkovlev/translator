@@ -46,7 +46,7 @@ final class SearchViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .white
+        view.backgroundColor = .main1
         view.alwaysBounceVertical = true
         view.contentInsetAdjustmentBehavior = .never
         view.isPrefetchingEnabled = false

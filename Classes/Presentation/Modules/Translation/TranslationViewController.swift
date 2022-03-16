@@ -16,6 +16,12 @@ protocol TranslationViewOutput {
 class TranslationViewController: UIViewController {
     private let output: TranslationViewOutput
 
+    private lazy var textTranslationLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .main1
+        return label
+    }()
+
     init(output: TranslationViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
@@ -26,6 +32,14 @@ class TranslationViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .main3
+        view.addSubview(textTranslationLabel)
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        textTranslationLabel.configureFrame { maker in
+            maker.top(inset:250).left(inset: 20).right(inset: 20).height(50)
+        }
     }
 }
