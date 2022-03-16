@@ -39,12 +39,4 @@ class TranslationModule {
         self.viewController = viewController
         self.presenter = presenter
     }
-//    init(state: TranslationState = .init() {
-//        let presenter = TranslationPresenter(state: state)
-//        let viewModel = TranslationViewModel(state: state, output: presenter)
-//        let viewController = TranslationViewController(viewModel: viewModel, output: presenter)
-//        presenter.view = viewController
-//        self.viewController = viewController
-//        self.presenter = presenter
-//    }
 }

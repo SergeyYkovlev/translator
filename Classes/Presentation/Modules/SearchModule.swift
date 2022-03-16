@@ -14,7 +14,8 @@ protocol SearchModuleInput: AnyObject {
 }
 
 protocol SearchModuleOutput: AnyObject {
-    func searchModuleTranslationOpenViewController()
+    func searchModuleTranslationModuleShowed(text: String, translation: String)
+//    func searchModuleTranslationViewController(enteredText: String)
 }
 
 final class SearchModule {

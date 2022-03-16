@@ -15,7 +15,7 @@ protocol SearchViewInput: AnyObject {
 
 protocol SearchViewOutput: AnyObject {
     func editingText(_ text: String)
-    func openTranslationViewController()
+    func selectCell(text: String, translation: String)
 }
 
 final class SearchViewController: UIViewController {

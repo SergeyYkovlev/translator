@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import UIKit
-import Framezilla
 
 class TranslationState {
 
+    var text1: String = ""
+    var text2: String = ""
 }

@@ -28,7 +28,7 @@ final class SearchListItemsFactory {
             let cellItem = SearchCollectionViewCellItem(translation: translation)
             cellItem.diffIdentifier = UUID().uuidString
             cellItem.itemDidSelectHandler = { [weak output] _ in
-                output?.openTranslationViewController()
+                output?.selectCell(text: state.text, translation: translation)
             }
             return cellItem
         }

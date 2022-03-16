@@ -10,13 +10,19 @@ import UIKit
 import Framezilla
 
 protocol TranslationViewOutput {
-
+    func translationLabel()
 }
 
 class TranslationViewController: UIViewController {
     private let output: TranslationViewOutput
 
-    private lazy var textTranslationLabel: UILabel = {
+    private(set) lazy var textLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .main1
+        return label
+    }()
+
+    private(set) lazy var textTranslationLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .main1
         return label
@@ -33,13 +39,19 @@ class TranslationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .main3
+        view.addSubview(textLabel)
         view.addSubview(textTranslationLabel)
+
+        output.translationLabel()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        textTranslationLabel.configureFrame { maker in
+        textLabel.configureFrame { maker in
             maker.top(inset:250).left(inset: 20).right(inset: 20).height(50)
+        }
+        textTranslationLabel.configureFrame { maker in
+            maker.top(inset:320).left(inset: 20).right(inset: 20).height(50)
         }
     }
 }

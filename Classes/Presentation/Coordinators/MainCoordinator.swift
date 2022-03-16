@@ -23,7 +23,6 @@ class MainCoordinator: BaseCoordinator <UINavigationController> {
     }
 
     override func start() {
-//        viewController.delegate = self
         searchModule.output = self
         translationModule.output = self
         rootViewController.pushViewController(searchModule.viewController, animated: true)
@@ -31,9 +30,19 @@ class MainCoordinator: BaseCoordinator <UINavigationController> {
 }
 
 extension MainCoordinator: SearchModuleOutput {
-    func searchModuleTranslationOpenViewController() {
+    func searchModuleTranslationModuleShowed(text: String, translation: String) {
+
+        translationModule.input.state.text1 = text
+        translationModule.input.state.text2 = translation
         rootViewController.pushViewController(translationModule.viewController, animated: true)
     }
+//    func searchModuleTranslationViewController(enteredText: String) {
+//        translationModule.input.state.text1  = enteredText
+//    }
+//    func searchModuleTranslationModuleShowed() {
+//
+//        rootViewController.pushViewController(translationModule.viewController, animated: true)
+//    }
 }
 
 extension MainCoordinator: TranslationModuleOutput {

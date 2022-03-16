@@ -8,5 +8,8 @@
 import Foundation
 
 class TranslationViewModel {
-
+    let words: [Word]
+    init(state: SearchState, output: TranslationViewOutput) {
+        words = state.words
+    }
 }

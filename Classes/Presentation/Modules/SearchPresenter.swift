@@ -27,10 +27,10 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchViewOutput {
-    func openTranslationViewController() {
-        output?.searchModuleTranslationOpenViewController()
+    func selectCell(text: String, translation: String) {
+        output?.searchModuleTranslationModuleShowed(text: state.enteredText, translation: translation)
+//        output?.searchModuleTranslationViewController(enteredText: state.enteredText)
     }
-
     private func translation() {
         searchService.fetchWords(query: state.enteredText, success: { [weak self] words in
             self?.state.words = words
