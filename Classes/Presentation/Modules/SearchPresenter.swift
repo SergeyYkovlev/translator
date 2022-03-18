@@ -27,9 +27,9 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchViewOutput {
-    func selectCell(text: String, translation: String) {
-        output?.searchModuleTranslationModuleShowed(text: state.enteredText, translation: translation)
-//        output?.searchModuleTranslationViewController(enteredText: state.enteredText)
+
+    func selectCell(text: String, translation: String, image: URL?) {
+        output?.searchModuleTranslationModuleShowed(text: text, translation: translation, image: image )
     }
     private func translation() {
         searchService.fetchWords(query: state.enteredText, success: { [weak self] words in

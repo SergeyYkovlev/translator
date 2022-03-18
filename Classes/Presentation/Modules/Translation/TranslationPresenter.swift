@@ -21,23 +21,17 @@ class TranslationPresenter {
 }
 
 extension TranslationPresenter: TranslationViewOutput {
-    func translationLabel() {
-        view?.textLabel.text = state.text1
-        view?.textTranslationLabel.text = state.text2
-//        guard var  text = view?.textTranslationLabel.text else{
-//            return
-//        }
-//        guard let meanings = state.words.first?.meanings else {
-//            return
-//        }
-//        text =  meanings.compactMap { meaning -> SearchCollectionViewCellItem? in
-//            guard let translation = meaning.translation?.text else {
-//                return nil
-//            }
-//        }
+    func viewWillAppear() {
+        update(force: false, animated: true)
+    }
+
+    func viewDidLoad() {
     }
 }
 
 extension TranslationPresenter: TranslationModuleInput {
-
+    func update(force: Bool, animated: Bool) {
+        let viewModel = TranslationViewModel(state: state, output: self)
+        view?.update(with: viewModel, force: force, animated: animated)
+    }
 }

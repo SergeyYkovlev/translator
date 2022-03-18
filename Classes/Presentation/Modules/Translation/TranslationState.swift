@@ -9,6 +9,7 @@ import Foundation
 
 class TranslationState {
 
-    var text1: String = ""
-    var text2: String = ""
+    var word: String = ""
+    var translationWord: String = ""
+    var imageUrl: URL?
 }

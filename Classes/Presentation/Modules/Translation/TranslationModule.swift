@@ -29,12 +29,14 @@ class TranslationModule {
             presenter.output = newValue
         }
     }
+
     let viewController: TranslationViewController
     private let presenter: TranslationPresenter
 
     init(state: TranslationState = .init()) {
         let presenter = TranslationPresenter(state: state)
-        let viewController = TranslationViewController(output: presenter)
+        let viewModel = TranslationViewModel(state: state, output: presenter)
+        let viewController = TranslationViewController(viewModel: viewModel, output: presenter)
         presenter.view = viewController
         self.viewController = viewController
         self.presenter = presenter

@@ -33,7 +33,7 @@ class SearchCollectionViewCellItem: CollectionViewDiffCellItem {
     }
 
     func size(in collectionView: UICollectionView, sectionItem: CollectionViewSectionItem) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 55)
+        return CGSize(width: collectionView.frame.width - 32, height: 55)
     }
 
     func isEqual(to item: DiffItem) -> Bool {

@@ -8,6 +8,7 @@
 import UIKit
 import Framezilla
 import CollectionViewTools
+import Kingfisher
 
 protocol SearchViewInput: AnyObject {
     func update(with viewModel: SearchViewModel, force: Bool, animated: Bool)
@@ -15,7 +16,7 @@ protocol SearchViewInput: AnyObject {
 
 protocol SearchViewOutput: AnyObject {
     func editingText(_ text: String)
-    func selectCell(text: String, translation: String)
+    func selectCell(text: String, translation: String, image: URL? )
 }
 
 final class SearchViewController: UIViewController {
@@ -42,7 +43,7 @@ final class SearchViewController: UIViewController {
         return textField
     }()
 
-    private(set) lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -87,6 +88,7 @@ final class SearchViewController: UIViewController {
                 .bottom(to: view.nui_safeArea.bottom, inset: Constants.collectionViewBottomInset)
         }
         collectionView.scrollIndicatorInsets = collectionView.contentInset
+        collectionView.contentInset.bottom = 400
     }
     @objc private func textFieldEditingChanged() {
         guard let text = searchTextField.text else {

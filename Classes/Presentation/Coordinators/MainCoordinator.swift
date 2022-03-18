@@ -30,19 +30,12 @@ class MainCoordinator: BaseCoordinator <UINavigationController> {
 }
 
 extension MainCoordinator: SearchModuleOutput {
-    func searchModuleTranslationModuleShowed(text: String, translation: String) {
-
-        translationModule.input.state.text1 = text
-        translationModule.input.state.text2 = translation
+    func searchModuleTranslationModuleShowed(text: String, translation: String, image: URL?) {
+        translationModule.input.state.word = text
+        translationModule.input.state.translationWord = translation
+        translationModule.input.state.imageUrl = image
         rootViewController.pushViewController(translationModule.viewController, animated: true)
     }
-//    func searchModuleTranslationViewController(enteredText: String) {
-//        translationModule.input.state.text1  = enteredText
-//    }
-//    func searchModuleTranslationModuleShowed() {
-//
-//        rootViewController.pushViewController(translationModule.viewController, animated: true)
-//    }
 }
 
 extension MainCoordinator: TranslationModuleOutput {
