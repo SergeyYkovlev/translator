@@ -1,2 +1,4 @@
 github "ReshetovE/CVT" "1.0"
+github "onevcat/Kingfisher" "7.2.0"
 github "rosberry/Framezilla" "5.1.2"
+github "rosberry/Texstyle" "0.5"

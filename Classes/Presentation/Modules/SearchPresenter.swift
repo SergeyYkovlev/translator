@@ -27,6 +27,10 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchViewOutput {
+
+    func selectCell(text: String, translation: String, image: URL?) {
+        output?.searchModuleTranslationModuleShowed(text: text, translation: translation, image: image )
+    }
     private func translation() {
         searchService.fetchWords(query: state.enteredText, success: { [weak self] words in
             self?.state.words = words

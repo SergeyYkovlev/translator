@@ -7,27 +7,44 @@
 
 import Foundation
 import CollectionViewTools
+import UIKit
 
 final class SearchListItemsFactory {
 
     weak var viewController: SearchViewController?
-    var output: SearchViewOutput?
+    weak var output: SearchViewOutput?
 
     func makeSectionItems(state: SearchState, output: SearchViewOutput) -> [GeneralCollectionViewDiffSectionItem] {
-        let sectionItem = GeneralCollectionViewDiffSectionItem()
 
-        guard let meanings = state.words.first?.meanings else {
-            return [sectionItem]
-        }
+        var sectionItems: [GeneralCollectionViewDiffSectionItem] = []
 
-        sectionItem.cellItems = meanings.compactMap { meaning -> SearchCollectionViewCellItem? in
-            guard let translation = meaning.translation?.text else {
-                return nil
+        sectionItems = state.words.map { word -> GeneralCollectionViewDiffSectionItem in
+            let sectionItem = GeneralCollectionViewDiffSectionItem()
+
+            sectionItem.minimumLineSpacing = 12
+            sectionItem.insets = .init(top: 24, left: 16, bottom: 24, right: 16)
+
+            guard let meanings = word.meanings else {
+                return sectionItem
             }
-            return SearchCollectionViewCellItem(translation: translation)
-        }
 
-        sectionItem.minimumLineSpacing = 10
-        return [sectionItem]
+            sectionItem.reusableViewItems = [SearchHeaderItem(word: word)]
+
+            sectionItem.cellItems = meanings.compactMap { meaning -> SearchCollectionViewCellItem? in
+                guard let translation = meaning.translation?.text, let imageUrl = meaning.imageUrl else {
+                    return nil
+                }
+
+                let cellItem = SearchCollectionViewCellItem(translation: translation)
+                cellItem.diffIdentifier = UUID().uuidString
+                cellItem.itemDidSelectHandler = { [weak output] _ in
+                    output?.selectCell(text: word.text!, translation: translation, image: imageUrl)
+                }
+                return cellItem
+            }
+            sectionItem.minimumLineSpacing = 10
+            return sectionItem
+        }
+        return sectionItems
     }
 }

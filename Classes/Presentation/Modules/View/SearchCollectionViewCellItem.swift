@@ -14,7 +14,7 @@ class SearchCollectionViewCellItem: CollectionViewDiffCellItem {
 
     private typealias Cell = SearchCollectionViewCell
 
-    let diffIdentifier: String
+    var diffIdentifier: String
 
     let reuseType: ReuseType = .class(Cell.self)
 
@@ -33,7 +33,7 @@ class SearchCollectionViewCellItem: CollectionViewDiffCellItem {
     }
 
     func size(in collectionView: UICollectionView, sectionItem: CollectionViewSectionItem) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 55)
+        return CGSize(width: collectionView.frame.width - 32, height: 55)
     }
 
     func isEqual(to item: DiffItem) -> Bool {

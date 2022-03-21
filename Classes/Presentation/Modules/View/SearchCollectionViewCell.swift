@@ -13,7 +13,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     private struct Constants {
         static let translationLabelLeftInset: CGFloat = 5
         static let translationLabelRightInset: CGFloat = 40
-        static let translationLabelTopInset: CGFloat = 10
+        static let translationLabelTopInset: CGFloat = 0
         static let translationLabelHeight: CGFloat = 30
     }
 
